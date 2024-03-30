@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Style for body */
+body {
+    background-image: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+/* Style for heading */
+.heading {
+    font-size: 70px;
+    color: white;
+    text-shadow:4px 3px 2px black;;
+}
+
+/* Style for buttons */
+.butt {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.butt:hover {
+    background-color: #45a049;
+}
+
+.butt:active {
+    background-color: #3e8e41;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #aaa;
+}
+#registerBtn{
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+}
+#loginBtn{
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+
+}
+
+
+
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+    
+  {% endif %}
+{% endwith %}
+<body class="index">
+    <h1 class="heading">Pet Place & Pet Adoption</h1>
+    <button id="registerBtn">Register</button>
+    <button id="loginBtn">Login</button>
+    
+    <div id="registerPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="closeRegister">&times;</span>
+            <p>Registration Form Goes Here</p>
+            <button><a href="{{url_for('user')}}" id="registerBtn" style="text-decoration: none;">User SignUp</a></button>
+            <button ><a href="{{url_for('shelter_registration')}}" id="loginBtn" style="text-decoration: none;">Shelter SignUp</a></button>
+        </div>
+    </div>
+
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <p>Login Form Goes Here</p>
+            <button  ><a href="{{url_for('userlogin')}}" id="registerBtn" style="text-decoration: none;">User Login</a></button>
+            <button ><a href="{{url_for('shelterlogin')}}" id="loginBtn" style="text-decoration: none;">Shelter Login</a></button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("registerBtn").onclick = function() {
+    document.getElementById("registerPopup").style.display = "block";
+}
+
+document.getElementById("closeRegister").onclick = function() {
+    document.getElementById("registerPopup").style.display = "none";
+}
+
+document.getElementById("loginBtn").onclick = function() {
+    document.getElementById("loginPopup").style.display = "block";
+}
+
+document.getElementById("closeLogin").onclick = function() {
+    document.getElementById("loginPopup").style.display = "none";
+}
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        body{
+            background-image: url('https://t3.ftcdn.net/jpg/06/17/02/08/360_F_617020806_eb8acQoO9IxsOMVpAtJNs79hvfyimFJt.jpg');
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .form{
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border:none;
+            border-radius: 5px;
+           
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: white;
+        }
+        input[type="text"],input[type="password"]{
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .butt{
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+        .butt:hover{
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body class="body">
+    <a href="{{url_for('index')}}"><button class="button-52">Back</button></a>
+    
+    <form class="form" method="POST">
+
+        <h1 style="justify-content: center;display: flex;align-content: center;">SIGN UP</h1>
+        <label for="user">Username:</label>
+        <input type="text" name="username" placeholder="Enter Your Username"/>
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" placeholder="Enter your Email"/>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Enter Your Password"/>
+        <center>
+        <button class="butt">Sign up</button>
+    </center>
+    </form>
+</body>
+</html>

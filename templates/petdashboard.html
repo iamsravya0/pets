@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Profiles</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Set a light background color */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto; /* Center the container */
+            padding: 20px;
+            background-color: #fff; /* Set a white background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+        }
+
+        /* Card Styles */
+        .carding {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* Set a white background color */
+        }
+
+        .exploreimage {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .pet-info {
+            flex: 1;
+        }
+
+        /* Button Styles */
+        .button-522 {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease; /* Add smooth transition */
+        }
+
+        .button-522:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+        <div class="container">
+            {% for i in pets_data %} 
+                <form method="POST" action="#">    
+                    <div class="carding">
+                        <img src="{{url_for('static',filename=i[7])}}" class="exploreimage"/>
+                        <div class="pet-info">
+                            <p><b>Name:</b> {{i[0]}}</p>
+                            <p><b>Species:</b> {{i[1]}}</p>
+                            <p><b>Breed:</b> {{i[2]}}</p>
+                            <p><b>Age:</b> {{i[3]}}</p>
+                            <p><b>Size:</b> {{i[4]}}</p>
+                            <p><b>Location:</b> {{i[6]}}</p>
+                            <p><b>Personality:</b> {{i[5]}}</p>
+                            <p><b>Shelter ID:</b> {{i[8]}}</p>
+                            <p><b>Name of the shelter:</b> {{i[9]}}</p>
+                            <p><b>Shelter phone number:</b> {{i[10]}}</p>
+                            {% if session.get('user') %}            
+                                <button class="button-522"><a href="{{url_for('adopt',p_id=i[11])}}">Adopt</a></button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </form> 
+            {% endfor %}
+        </div>
+    {% endblock %}
+</body>
+</html>

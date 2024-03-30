@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .shelter{
+    background-image: url('https://t3.ftcdn.net/jpg/06/89/84/78/360_F_689847857_CPdjOnOuFQXrbFwtNd7tAgl6PugZX8io.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .form {
+  width:40vw; /* Adjust max-width as needed */
+ 
+}
+
+.form h1 {
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 35px; /* Increase margin-bottom for more space between form groups */
+}
+
+label {
+  flex: 1;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="file"] {
+  flex: 2;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="file"] {
+  padding-top: 5px; /* Adjust padding-top as needed */
+  margin-left:115px;
+  width:27vw
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+#showShelterForm {
+    display: none;
+  }
+
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body class="shelter">
+  
+    <form class="form" method="POST" enctype="multipart/form-data" action="#">
+      <h1>Give a shelter</h1>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+      </div>
+      <div class="form-group">
+        <label for="species">Species</label>
+        <input type="text" id="species" name="species" />
+      </div>
+      <div class="form-group">
+        <label for="age">age</label>
+        <input type="text" id="age" name="age" />
+      </div>
+      <div class="form-group">
+        <label for="size">Size</label>
+        <input type="text" id="breed" name="size" />
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" />
+      </div>
+      <div class="form-group">
+        <label for="breed">Breed</label>
+        <input type="text" id="breed" name="breed" />
+      </div>
+      <div class="form-group">
+        <label for="personality">Personality</label>
+        <input type="text" id="personality" name="personality" />
+      </div>
+      <div>
+        <label for="pet-image">Image_url:</label>
+        <input type="file" id="pet-image" name="image_url">
+      </div><br />
+      <div>
+        <label for="history">History:</label>
+        <input type="file" id="history" name="history" style="margin-left: 130px;">
+      </div><br />
+       
+        <button type="submit" class="btn btn-primary" style="width: 20%;">Add Shelter</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+</html>

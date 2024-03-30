@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Profiles Dashboard</title>
+    <style>
+      .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+    </style>
+</head>
+<body>
+  <a href="{{url_for('home')}}"><button class="button-52">Back</button></a>
+        <h1>Pet Profiles Dashboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Species</th>
+                    <th>Breed</th>
+                    <th>Age</th>
+                    <th>Size</th>
+                    <th>Personality</th>
+                    <th>Location</th>
+                    <th>Image</th>
+                    <th>History</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for i in pets %}
+              <tr>
+                  <td>{{i[0]}}</td>
+                  <td>{{i[1]}}</td>
+                  <td>{{i[2]}}</td>
+                  <td>{{i[3]}}</td>
+                  <td>{{i[4]}}</td>
+                  <td>{{i[5]}}</td>
+                  <td>{{i[6]}}</td>
+                  <td>{{i[7]}}</td>
+                  <td>{{i[8]}}</td>
+                  <td><a href="{{url_for('updatepets',id=i[10])}}">update Shelter</a></td>
+                  <td><a href="{{url_for('delete',id=i[10])}}">Delete</a></td>
+              </tr>
+          </tbody>
+          {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .show{
+        background-image: url('https://cdn.pixabay.com/photo/2019/08/19/07/45/corgi-4415649_640.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+         .form {
+  width:40vw; /* Adjust max-width as needed */
+ 
+}
+
+.form h1 {
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 35px; /* Increase margin-bottom for more space between form groups */
+}
+
+label {
+  flex: 1;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="file"] {
+  flex: 2;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="file"] {
+  padding-top: 5px; /* Adjust padding-top as needed */
+  margin-left:115px;
+  width:27vw
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+#showShelterForm {
+    display: none;
+  }
+    </style>
+</head>
+<body class="show">
+  <a href="{{url_for('index')}}"><button class="button-52">Back</button></a>
+    <form class="form" method="POST" enctype="multipart/form-data" action="#">
+        <h1 id="showshelter">Shelter Details</h1>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" />
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" />
+        </div>
+        <div class="form-group">
+          <label for="contact_person">Contact_Person</label>
+          <input type="text" id="contact_person" name="contact_person" />
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input type="text" id="email" name="email"/>
+        </div>
+        <div class="form-group">
+          <label for="phone_number">Phone_number</label>
+          <input type="text" id="Phone_number" name="Phone_number" />
+        </div>
+        <div class="form-group">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" />
+        </div><br/>
+          <button type="submit" class="btn btn-primary" style="width: 30%; font-size: 20px;">Shelter register</button>
+      </form>
+</body>
+</html>

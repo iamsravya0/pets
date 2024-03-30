@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add </title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-color: khaki;
+        }
+        .btnstyle {
+            background-color:blue;
+            color:white;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    
+    <form method="POST">
+        <div>
+            <h1>Update </h1>
+        </div>
+        <label>name</label>
+        <p><input type="text" name="name" value='{{data[0]}}' required/></p>
+        <label>species</label>
+        <p><input type="text" name="species" value='{{data[1]}}' required/></p>
+        <label>breed</label>
+        <p><input type="text" name="breed" value='{{data[2]}}' required/></p>
+        <label >age</label>
+        <p><input type="text" name="age" value='{{data[3]}}' required/></p>
+        <label>size</label>
+        <p><input type="text" name="size" value='{{data[4]}}' required/></p>
+        <label>location</label>
+        <p><input type="text" name="location" value='{{data[5]}}' required/></p>
+        <button class="btnstyle" type="submit">Submit</button>
+    </form>
+    </form>
+</body>
+</html>
